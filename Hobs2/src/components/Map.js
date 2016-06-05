@@ -90,9 +90,11 @@ var styles = StyleSheet.create({
     marginLeft: Dimensions.get('window').width - 40
   },
   header: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#faf5ec'
   },
   bottom: {
-    flex: 5
+    flex: 5,
+    backgroundColor: '#faf5ec'
   }
 });
