@@ -1,9 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    package="com.hobs2"
-=======
     package="com.hobs"
->>>>>>> 3a302181370f000c12471ff3b81ce27c7b3edec9
     android:versionCode="1"
     android:versionName="1.0">
 

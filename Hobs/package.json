@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "Hobs2",
-=======
-  "name": "hobs",
->>>>>>> 3a302181370f000c12471ff3b81ce27c7b3edec9
+  "name": "Hobs",
   "version": "0.0.1",
   "private": true,
   "scripts": {

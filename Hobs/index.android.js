@@ -11,11 +11,7 @@ import {
   View
 } from 'react-native';
 
-<<<<<<< HEAD
-class Hobs2 extends Component {
-=======
-class hobs extends Component {
->>>>>>> 3a302181370f000c12471ff3b81ce27c7b3edec9
+class Hobs extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -52,8 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-<<<<<<< HEAD
-AppRegistry.registerComponent('Hobs2', () => Hobs2);
-=======
-AppRegistry.registerComponent('hobs', () => hobs);
->>>>>>> 3a302181370f000c12471ff3b81ce27c7b3edec9
+AppRegistry.registerComponent('Hobs', () => Hobs);

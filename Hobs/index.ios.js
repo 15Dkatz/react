@@ -14,7 +14,7 @@ import {
 
 var Main = require('./src/main.js');
 
-class Hobs2 extends Component {
+class Hobs extends Component {
   render() {
     return (
       <Main/>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Hobs2', () => Hobs2);
+AppRegistry.registerComponent('Hobs', () => Hobs);

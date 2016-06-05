@@ -81,11 +81,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-<<<<<<< HEAD
-        applicationId "com.hobs2"
-=======
         applicationId "com.hobs"
->>>>>>> 3a302181370f000c12471ff3b81ce27c7b3edec9
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
