@@ -1,7 +1,6 @@
-'use strict';
-import React {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Text,
   TextInput,
@@ -13,9 +12,9 @@ import React {
 import Button from '../components/button';
 import Header from '../components/header';
 import Login from './login';
-import styles from '../styles/common-styles.js';
+import styles from '../styles/common_styles.js';
 import Firebase from 'firebase';
-let app = new Firebase("https://reactfireitems.firebaseio.com/");
+let app = new Firebase('https://reactfireitems.firebaseio.com/');
 
 export default class account extends Component {
   constructor(props) {

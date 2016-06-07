@@ -12,15 +12,16 @@ var Button = require('./Button');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      rentMin: '1000',
-      rentMax: '2000',
-      salMin: '30000',
-      salMax: '70000',
-      weeklySpending: '100',
-      weeklySavings: '50'
+      rentMin: this.props.data.userRentMin.toString(),
+      rentMax: this.props.data.userRentMax.toString(),
+      salMin: this.props.data.userSalMin.toString(),
+      salMax: this.props.data.userSalMax.toString()
     };
   },
+
+
   render: function() {
+    console.log(this.props.data, "data");
     return (
       <View style={styles.container}>
         <Text style={styles.category}>Rent Range</Text>
@@ -53,30 +54,20 @@ module.exports = React.createClass({
             onChangeText={(val) => this.setState({salMax: val.toString()})}
           />
         </View>
-        <Text style={styles.category}>Weekly Spending</Text>
-        <View>
-          <TextInput
-            style={styles.input}
-            defaultValue={this.state.weeklySpending}
-            keyboardType={'number-pad'}
-            onChangeText={(val) => this.setState({weeklySpending: val.toString()})}
-          />
-        </View>
-        <Text style={styles.category}>Weekly Savings</Text>
-        <View>
-          <TextInput
-            style={styles.input}
-            defaultValue={this.state.weeklySavings}
-            keyboardType={'number-pad'}
-            onChangeText={(val) => this.setState({weeklySavings: val.toString()})}
-          />
-        </View>
         <Button
           text={'Save'}
-          onPress={() => this.props.navigator.pop()}
+          onPress={this.saveFilter}
         />
       </View>
     );
+  },
+
+  saveFilter: function() {
+    this.props.navigator.resetTo({
+      name: 'map',
+      userData: this.state
+    })
+    console.log("this.state", this.state);
   }
 });
 
@@ -84,25 +75,24 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     backgroundColor: '#faf5ec'
   },
   category: {
-    fontSize: 30,
-    color: '#8c8c8c'
+    fontSize: 24,
   },
   range: {
     flexDirection: 'row'
   },
   input: {
-    fontSize: 23,
+    fontSize: 20,
     borderWidth: 1,
     borderRadius: 5,
     height: 40,
     width: 120,
     margin: 10,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 15,
     color: '#8c8c8c',
     borderColor: '#ecd794',
     backgroundColor: '#fcfbd9'

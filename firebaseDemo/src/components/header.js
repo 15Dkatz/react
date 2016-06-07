@@ -1,7 +1,6 @@
-'use strict';
-import React, {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Text,
   TextInput,
@@ -15,7 +14,7 @@ export default class header extends Component {
     return (
       <View style={styles.header}>
         <View style={styles.header_item}>
-          <Text style={styles.header_text}{this.props.text}></Text>
+          <Text style={styles.header_text}>{this.props.text}</Text>
         </View>
         <View style={styles.header_item}>
           { !this.props.loaded &&

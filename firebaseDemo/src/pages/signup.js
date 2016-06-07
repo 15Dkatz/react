@@ -1,7 +1,7 @@
-'use strict';
-import React, {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
+  StyleSheet,
   Text,
   TextInput,
   View
@@ -11,7 +11,7 @@ import React, {
 import Button from '../components/button';
 import Header from '../components/header';
 import Login from './login';
-import styles from '../styles/common-styles.js';
+import styles from '../styles/common_styles.js';
 import Firebase from 'firebase';
 let app = new Firebase("https://reactfireitems.firebaseio.com/");
 
@@ -48,17 +48,15 @@ export default class signup extends Component {
             break;
         }
       } else {
-          alert("Your account was created!");
-        // FIX!
-
+        alert("Your account was created!");
         this.setState({
-          email: ''.
+          email: '',
           password: '',
           loaded: true
-        })
+        });
       }
     })
-  },
+  }
 
   goToLogin() {
     this.props.navigator.push({

@@ -12,12 +12,21 @@ import {
   View
 } from 'react-native';
 
-var Main = require('./src/main.js');
-
-class Hobs extends Component {
+class firebaseSelf extends Component {
   render() {
     return (
-      <Main/>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.ios.js
+        </Text>
+        <Text style={styles.instructions}>
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
+        </Text>
+      </View>
     );
   }
 }
@@ -41,6 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Hobs', () => Hobs);
-
-// SET TEMP PINS FOR JOBS
+AppRegistry.registerComponent('firebaseSelf', () => firebaseSelf);

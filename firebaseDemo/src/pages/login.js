@@ -1,5 +1,5 @@
 'use strict';
-import React {
+import React, {
   AppRegistry,
   Component,
   StyleSheet,
@@ -9,11 +9,11 @@ import React {
   AsyncStorage
 } from 'react-native';
 
-import Button from '../components/button';
-import Header from '../components/header';
+var Button = require('../components/button');
+var Header = require('../components/header');
 import Signup from './signup';
 import Account from './account';
-import styles from '../styles/common-styles.js';
+import styles from '../styles/common_styles.js';
 import Firebase from 'firebase';
 let app = new Firebase("https://reactfireitems.firebaseio.com/");
 

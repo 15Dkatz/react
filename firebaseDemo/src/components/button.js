@@ -1,13 +1,12 @@
-'use strict';
-import React {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   Text,
   View,
   TouchableHighlight
 } from 'react-native';
 
-export default class button extends Component {
+export class button extends Component {
   render() {
     return (
       <View>

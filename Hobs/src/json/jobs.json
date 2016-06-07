@@ -1,0 +1,40 @@
+{
+	"jobs": [
+		{
+			"address": "Registered Nurse",
+			"latitude": 37.764234,
+			"longitude": -122.43198
+		},
+		{
+			"address": "Nurse Practitioner (Psychiatric-Mental Health",
+			"latitude": 37.749001,
+			"longitude": -122.412335
+		}, 
+		{
+			"address": "Nurse Practitioner",
+			"latitude": 37.78997,
+			"longitude": -122.412332
+		},
+				{
+			"address": "Registered Nurse (Community Nursing Home)",
+			"latitude": 37.75685,
+			"longitude": -122.42263
+		}, 
+		{
+			"address": "CFPD Pathways Internship - Student Trainee NTE",
+			"latitude": 37.723167,
+			"longitude": -122.46358
+		},
+				{
+			"address": "CFPD Pathways Internship - Student Trainee",
+			"latitude": 37.759057,
+			"longitude": -122.448184
+		}, 
+		{
+			"address": "CFPD Pathways Recent Graduate",
+			"latitude": 37.75994,
+			"longitude": -122.436571
+		}
+
+	]
+}

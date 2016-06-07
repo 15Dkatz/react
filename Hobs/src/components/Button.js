@@ -27,17 +27,17 @@ module.exports = React.createClass({
 
 var styles = StyleSheet.create({
   button: {
-    width: 150,
+    width: 260,
     backgroundColor: '#a9e5a8',
     borderRadius: 5,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginTop: 10
   },
   text: {
     padding: 5,
     textAlign: 'center',
-    fontSize: 18,
-    borderRadius: 5,
-    color: '#8c8c8c',
-    fontSize: 27
+    fontSize: 20,
+    padding: 10,
+    borderRadius: 5
   }
 });

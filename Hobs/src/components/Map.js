@@ -5,21 +5,37 @@ var {
   MapView,
   TouchableOpacity,
   Image,
-  Dimensions
+  Dimensions,
+  Text
 } = require('react-native');
 
 
-var Api = require('../api');
+
+// var allPins = [];
 var propertyPins = require('../json/affordableHomes.json').homes;
-var propertyPinsArr = [];
-for (var i=0; i<propertyPins.length; i++) {
-  var nextPin = propertyPins[i];
-  nextPin.title = propertyPins[i].address;
-  nextPin.subtitle = "$"+ propertyPins[i].rent+"/mo";
-  nextPin.animateDrop = true;
-  nextPin.image = require("../img/location.png");
-  propertyPinsArr.push(nextPin);
-}
+
+// for (var i=0; i<propertyPins.length; i++) {
+//   var nextPin = propertyPins[i];
+//   nextPin.title = propertyPins[i].address;
+//   nextPin.subtitle = "$"+ propertyPins[i].rent+"/mo";
+//   nextPin.animateDrop = true;
+//   nextPin.image = require("../img/Marker_104.png");
+//   allPins.push(nextPin);
+// }
+
+var jobPins = require('../json/jobs.json').jobs;
+// // var jobPinsArr = [];
+// for (var i=0; i<jobPins.length; i++) {
+//   var nextPin = jobPins[i];
+//   nextPin.title = jobPins[i].address;
+//   nextPin.animateDrop = true;
+//   nextPin.image = require("../img/location.png");
+//   allPins.push(nextPin);
+// }
+
+var List = require('./List');
+// filter function
+//  resets allPins to whatever parameter i.e. rent
 
 module.exports = React.createClass({
   getInitialState() {
@@ -31,49 +47,88 @@ module.exports = React.createClass({
         longitudeDelta: .14,
         latitudeDelta: .14
       },
-      propertyPins: propertyPins
+      propertyPins: propertyPins,
+      jobPins: jobPins,
+      userRentMin: 500,
+      userRentMax: 3000,
+      userSalMin: 20000,
+      userSalMax: 150000
     };
   },
 
+  pins: [],
+
+  componentWillMount() {
+    // this.pins = [];
+    var allPins = [];
+    
+
+    for (var i=0; i<propertyPins.length; i++) {
+      var nextPin = propertyPins[i];
+      nextPin.title = propertyPins[i].address;
+      nextPin.subtitle = "$"+ propertyPins[i].rent+"/mo";
+      nextPin.animateDrop = true;
+      nextPin.image = require("../img/Marker_104.png");
+    // // }
+    //   if (this.props.userData)
+    //     var newMax = parseInt(this.props.userData.rentMax);
+    //     var newMin = parseInt(this.props.userData.rentMin);
+    //     if ((jobSalMax < newMin) || (jobSalMin > newMax)) {
+    //       // console.count('fail');
+    //       // return null;
+    //       console.log("pass");
+    //     } else {
+      allPins.push(nextPin);
+    //     }
+    }
+
+    for (var i=0; i<jobPins.length; i++) {
+      var nextPin = jobPins[i];
+      nextPin.title = jobPins[i].address;
+      nextPin.animateDrop = true;
+      nextPin.image = require("../img/location.png");
+      allPins.push(nextPin);
+    }
+    this.pins = allPins;
+  },
+
   render: function() {
+    console.log("userData in MAP", this.props.userData);
     return (
       <View style={styles.container}>
         <View
           style={styles.header}
         >
+          <Text style={styles.title}>
+            Hobs
+          </Text>
         </View>
         <MapView
           style={styles.map}
           onRegionChangeComplete={this.onRegionChangeComplete}
           region={this.state.mapRegion}
-          annotations={ propertyPinsArr }
+          annotations={ this.pins }
           />
           <TouchableOpacity
-            onPress={() => this.props.navigator.push({name: 'settings'})}>
+            onPress={() => this.props.navigator.push({name: 'settings', data: this.state})}>
             <Image
               style={styles.setting}
               source={require('../img/settings.png')}
             />
           </TouchableOpacity>
-        <View
-          style={styles.bottom}
+        <List
+          navigator={this.props.navigator}
+          userData={this.props.userData}
         >
-        </View>
+        </List>
       </View>
     );
   },
   onRegionChangeComplete: function(region) {
-    Api(region.latitude, region.longitude)
     this.setState({
       mapRegion: region
     })
-
-    console.log(region.latitudeDelta, "latD", region.longitudeDelta, "longD");
-    console.log(propertyPins);
   }
-
-
-
 });
 
 var styles = StyleSheet.create({
@@ -81,7 +136,7 @@ var styles = StyleSheet.create({
     flex: 1
   },
   map: {
-    flex: 7
+    flex: 9
   },
   setting: {
     marginTop: -40,
@@ -91,10 +146,14 @@ var styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    backgroundColor: '#faf5ec'
+    backgroundColor: '#faf5ec',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
-  bottom: {
-    flex: 5,
-    backgroundColor: '#faf5ec'
+  title: {
+    marginBottom: 4,
+    fontWeight: '600',
+    fontSize: 18
+
   }
 });
